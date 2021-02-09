@@ -13,7 +13,7 @@ a=$(cat /etc/hostname)
 # Tell the user what the current hostname is in a human friendly way
 echo "Your Current Hostname: $a"
 # Ask for the user's student number using the read command
-echo "To change your Hostname to pcNNNNNNNNN where NNNNNNNNN is your student NO :"
+echo "To change your Hostname to pcNNNNNNNNN where NNNNNNNNN is your student No."
 
 echo "Enter Your StudentNumber:"
 
@@ -33,6 +33,7 @@ echo "======"
 # If that hostname is not the current hostname, change it using the hostnamectl command and
 #     tell the user you changed the current hostname and they should reboot to make sure the new name takes full effect
 #e.g. hostnamectl set-hostname $newname
+hostnamectl set-hostname $b
 echo "To apply changes you have done you need to reboot your system... "
 read -s -n 1 -p "Press Enter to make changes and reboot your pc"
 sudo reboot
