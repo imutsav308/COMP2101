@@ -82,7 +82,7 @@
 #External IP     : $(curl -s icanhazip.com)
 #External Name   : $(getent hosts $(curl -s icanhazip.com) | awk '{print $2}')
 #EOF
-
+#---------TASK1--------#
 hname=$(hostname)
 int=$(ip a |awk '/: e/{gsub(/:/,"");print $2}'| awk 'NR==1')
 LAN_add=$(ip a s $int |awk '/inet /{gsub(/\/.*/,"");print $2}')
@@ -90,16 +90,25 @@ LAN_host=$(getent hosts $LAN_add | awk '{print $2}')
 Ext_ip=$(curl -s icanhazip.com)
 Ext_name=$(getent hosts $Ext_ip | awk '{print $2}')
 
-echo "Hostname            :  $hname
-      Interface           :  $int
-      LAN Address         :  $LAN_add
-      LAN Hostname        :  $LAN_host
-      External IP Address :  $Ext_ip
-      External Name       :  $Ext_name"
 #echo "Hostname            :  $hname
-
+#      Interface           :  $int
+#      LAN Address         :  $LAN_add
+#      LAN Hostname        :  $LAN_host
+#      External IP Address :  $Ext_ip
+#      External Name       :  $Ext_name"
+#---------TASK2----------#
 RT_ip=$(ip r | awk '/default/{print $3}')
 RT_name=$(getent hosts $RT_ip | awk '{print $2}')
 
-echo "Router IP   : $RT_ip"
-echo "Router Name : $RT_name"
+#echo "Router IP   : $RT_ip"
+#echo "Router Name : $RT_name"
+ cat<<EOF
+ Hostname      : $(hostname)
+ Interface     : $int
+ LAN Address   : $LAN_add
+ LAN Hostname  : $LAN_host
+ External IP   : $Ext_ip
+ External Name : $Ext_name
+ Router IP     : $RT_ip
+ Router Name   : $RT_name
+EOF
