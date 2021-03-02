@@ -96,6 +96,7 @@ echo "Hostname            :  $hname
       LAN Hostname        :  $LAN_host
       External IP Address :  $Ext_ip
       External Name       :  $Ext_name"
+#echo "Hostname            :  $hname
 
 RT_ip=$(ip r | awk '/default/{print $3}')
 RT_name=$(getent hosts $RT_ip | awk '{print $2}')
