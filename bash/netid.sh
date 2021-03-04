@@ -93,8 +93,7 @@ array=($(ip a |awk '/: e/{gsub(/:/,"");print $2}'))
 for (( i=0; i < ${#array[@]} ; i++ )); do
 interface=${array[i]}
 
-   #declare -a array_test=["$interface"]
-#interface="ens33"
+
 [ "$verbose" = "yes" ] && echo "Reporting on interface(s): $interface"
 
 [ "$verbose" = "yes" ] && echo "Getting IPV4 address and name for interface $interface"
